@@ -1,6 +1,6 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 const numeral = [...Array(10).keys()];
-const specialSymbols = ["%", "*", "(", ")", "?", "@", "#", "$", "~"];
+const specialSymbols = ["%", "*", "(", ")", "?", "@", "#", "$", "~", "-"];
 const defaultAmount = 16;
 
 let isLowerCase = true;
@@ -73,7 +73,7 @@ function generatePassword() {
    */
   function getArray() {
     const arr = [
-      alphabet,
+      isLowerCase || isUpperCase ? alphabet : null,
       isNumbers ? numeral : null,
       isSpecialSymbols ? specialSymbols : null,
     ].filter((row) => row !== null);
@@ -88,7 +88,7 @@ function generatePassword() {
    * @returns element (random case)
    */
   function getCase(element) {
-    if (!alphabet.includes(element)) return null;
+    if (!alphabet.includes(element)) return element;
 
     const arr = [
       isLowerCase ? element.toLowerCase() : null,
