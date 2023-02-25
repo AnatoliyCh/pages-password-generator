@@ -8,8 +8,8 @@
     </head>
     <body>        
         <div>
-            <input type="checkbox" id="lower-case" name="lower-case" onchange="change('lowerCase')">
-            <label for="lower-case">a-z</label>
+            <input type="checkbox" id="lowerCase" name="lowerCase" checked onchange="change('lowerCase')">
+            <label for="lowerCase">a-z</label>
         </div>
         <div>
             <input type="checkbox" id="uppercase" name="uppercase" onchange="change('upperCase')">
@@ -21,11 +21,17 @@
         </div>
         <div>
             <input type="checkbox" id="specialSymbols" name="specialSymbols" onchange="change('specialSymbols')">
-            <label for="numbers">Special symbols: % * ( ) ? @ # $ ~</label>
+            <label for="specialSymbols">Special symbols: % * ( ) ? @ # $ ~</label>
         </div>
         <div>
             <input type="number" id="amount" name="amount" min="2" max="1024" value="16" onchange="change('amount', event)" >
         </div>
-        <button>Generate</button>
+        <div>
+            <button onclick="generatePassword()">Generate</button>
+            <button onclick="copyToClipboard()">Copy Password to Clipboard</button>
+        </div>
+        <div>
+            <textarea name="result" id="result" cols="30" rows="10"></textarea>
+        </div>
     </body>
 </html>
