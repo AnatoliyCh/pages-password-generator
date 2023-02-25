@@ -6,5 +6,26 @@
         <link rel="stylesheet" href="style.css">
         <title>Password generator</title>
     </head>
-    <body></body>
+    <body>        
+        <div>
+            <input type="checkbox" id="lower-case" name="lower-case" onchange="change('lowerCase')">
+            <label for="lower-case">a-z</label>
+        </div>
+        <div>
+            <input type="checkbox" id="uppercase" name="uppercase" onchange="change('upperCase')">
+            <label for="uppercase">A-Z</label>
+        </div>
+        <div>
+            <input type="checkbox" id="numbers" name="numbers" onchange="change('numbers')">
+            <label for="numbers">0-9</label>
+        </div>
+        <div>
+            <input type="checkbox" id="specialSymbols" name="specialSymbols" onchange="change('specialSymbols')">
+            <label for="numbers">Special symbols: % * ( ) ? @ # $ ~</label>
+        </div>
+        <div>
+            <input type="number" id="amount" name="amount" min="2" max="1024" value="16" onchange="change('amount', event)" >
+        </div>
+        <button>Generate</button>
+    </body>
 </html>
