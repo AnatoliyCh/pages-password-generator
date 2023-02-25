@@ -7,31 +7,33 @@
         <title>Password generator</title>
     </head>
     <body>        
-        <div>
-            <input type="checkbox" id="lowerCase" name="lowerCase" checked onchange="change('lowerCase')">
-            <label for="lowerCase">a-z</label>
-        </div>
-        <div>
-            <input type="checkbox" id="uppercase" name="uppercase" onchange="change('upperCase')">
-            <label for="uppercase">A-Z</label>
-        </div>
-        <div>
-            <input type="checkbox" id="numbers" name="numbers" onchange="change('numbers')">
-            <label for="numbers">0-9</label>
-        </div>
-        <div>
-            <input type="checkbox" id="specialSymbols" name="specialSymbols" onchange="change('specialSymbols')">
-            <label for="specialSymbols">Special symbols: % * ( ) ? @ # $ ~</label>
-        </div>
-        <div>
-            <input type="number" id="amount" name="amount" min="2" max="1024" value="16" onchange="change('amount', event)" >
-        </div>
-        <div>
-            <button onclick="generatePassword()">Generate</button>
-            <button onclick="copyToClipboard()">Copy Password to Clipboard</button>
-        </div>
-        <div>
-            <textarea name="result" id="result" cols="30" rows="10"></textarea>
+        <div class="root-container">
+            <div class="checkbox-container">            
+                <div>
+                    <input type="checkbox" id="lowerCase" name="lowerCase" checked onchange="change('lowerCase')">
+                    <label for="lowerCase">a-z</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="uppercase" name="uppercase" onchange="change('upperCase')">
+                    <label for="uppercase">A-Z</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="numbers" name="numbers" onchange="change('numbers')">
+                    <label for="numbers">0-9</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="specialSymbols" name="specialSymbols" onchange="change('specialSymbols')">
+                    <label for="specialSymbols">Special symbols: % * ( ) ? @ # $ ~</label>
+                </div>
+            </div>
+            <div class="element-container">
+                <input type="number" id="amount" name="amount" min="2" max="1024" value="16" onchange="change('amount', event)">
+                <button onclick="generatePassword()">Generate</button>
+                <button onclick="copyToClipboard()">Copy Password to Clipboard</button>
+            </div>
+            <div class="result-wrapper">
+                <textarea name="result" id="result" readonly></textarea>
+            </div>            
         </div>
     </body>
 </html>
