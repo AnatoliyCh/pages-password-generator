@@ -17,12 +17,6 @@ let lastPassword = null;
 function change(name, event) {
   switch (name) {
     case "lowerCase":
-      if (!(isUpperCase || isNumbers || isSpecialSymbols)) {
-        const checkbox = document.getElementById("lowerCase");
-        checkbox && (checkbox.checked = true);
-
-        return;
-      }
       isLowerCase = !isLowerCase;
       break;
     case "upperCase":
@@ -37,6 +31,12 @@ function change(name, event) {
     case "amount":
       changeAmount(event?.target ?? null);
       break;
+  }
+
+  if (!(isLowerCase || isUpperCase || isNumbers || isSpecialSymbols)) {
+    const checkbox = document.getElementById("lowerCase");
+    checkbox && (checkbox.checked = true);
+    isLowerCase = true;
   }
 }
 
