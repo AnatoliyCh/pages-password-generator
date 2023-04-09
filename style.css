@@ -3,6 +3,7 @@ body {
     display: flex;
     justify-content: center;
 
+    --xs: 8px;
     --md: 16px
 }
 
@@ -13,11 +14,16 @@ body {
     row-gap: var(--md);   
 }
 
-.checkbox-container, 
+.checkbox-container,
+.checkbox-special-container,
 .element-container {
     display: flex;
     flex-direction: row;
     column-gap: var(--md);   
+}
+
+.checkbox-special-container {
+    column-gap: var(--xs);
 }
 
 .result-wrapper, 

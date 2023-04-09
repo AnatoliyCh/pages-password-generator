@@ -21,10 +21,50 @@
                     <input type="checkbox" id="numbers" name="numbers" onchange="change('numbers')">
                     <label for="numbers">0-9</label>
                 </div>
+            </div>
+            <!-- special symbols -->
+            <div class="checkbox-special-container">
+                <button onclick="setUnsetAllSpecialSymbols()">All / Not All</button>
                 <div>
-                    <input type="checkbox" id="specialSymbols" name="specialSymbols" onchange="change('specialSymbols')">
-                    <label for="specialSymbols">Special symbols: % * ( ) ? @ # $ ~ -</label>
-                </div>
+                    <input type="checkbox" id="checkbox-%" name="%" onchange="changeSpecialSymbols('%')">
+                    <label for="checkbox-%">%</label>
+                </div>  
+                <div>
+                    <input type="checkbox" id="checkbox-*" name="*" onchange="changeSpecialSymbols('*')">
+                    <label for="checkbox-*">*</label>
+                </div>  
+                <div>
+                    <input type="checkbox" id="checkbox-(" name="(" onchange="changeSpecialSymbols('(')">
+                    <label for="checkbox-(">(</label>
+                </div>  
+                <div>
+                    <input type="checkbox" id="checkbox-)" name=")" onchange="changeSpecialSymbols(')')">
+                    <label for="checkbox-)">)</label>
+                </div>  
+                <div>
+                    <input type="checkbox" id="checkbox-?" name="?" onchange="changeSpecialSymbols('?')">
+                    <label for="checkbox-?">?</label>
+                </div>  
+                <div>
+                    <input type="checkbox" id="checkbox-@" name="@" onchange="changeSpecialSymbols('@')">
+                    <label for="checkbox-@">@</label>
+                </div>  
+                <div>
+                    <input type="checkbox" id="checkbox-#" name="#" onchange="changeSpecialSymbols('#')">
+                    <label for="checkbox-#">#</label>
+                </div> 
+                <div>
+                    <input type="checkbox" id="checkbox-$" name="$" onchange="changeSpecialSymbols('$')">
+                    <label for="checkbox-$">$</label>
+                </div> 
+                <div>
+                    <input type="checkbox" id="checkbox-~" name="~" onchange="changeSpecialSymbols('~')">
+                    <label for="checkbox-~">~</label>
+                </div> 
+                <div>
+                    <input type="checkbox" id="checkbox--" name="-" onchange="changeSpecialSymbols('-')">
+                    <label for="checkbox--">-</label>
+                </div>        
             </div>
             <div class="element-container">
                 <input type="number" id="amount" name="amount" min="2" max="1024" value="16" onchange="change('amount', event)">

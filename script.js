@@ -1,12 +1,13 @@
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 const numeral = [...Array(10).keys()];
-const specialSymbols = ["%", "*", "(", ")", "?", "@", "#", "$", "~", "-"];
+const specialSymbolsAll = ["%", "*", "(", ")", "?", "@", "#", "$", "~", "-"];
 const defaultAmount = 16;
 
 let isLowerCase = true;
 let isUpperCase = false;
 let isNumbers = false;
-let isSpecialSymbols = false;
+let specialSymbols = [];
+let isAllSpecialSymbols = false;
 let lastPassword = null;
 
 /**
@@ -15,6 +16,7 @@ let lastPassword = null;
  * @param {Event} event
  */
 function change(name, event) {
+  console.log(event);
   switch (name) {
     case "lowerCase":
       isLowerCase = !isLowerCase;
@@ -25,19 +27,44 @@ function change(name, event) {
     case "numbers":
       isNumbers = !isNumbers;
       break;
-    case "specialSymbols":
-      isSpecialSymbols = !isSpecialSymbols;
-      break;
     case "amount":
       changeAmount(event?.target ?? null);
       break;
   }
 
-  if (!(isLowerCase || isUpperCase || isNumbers || isSpecialSymbols)) {
+  if (!(isLowerCase || isUpperCase || isNumbers)) {
     const checkbox = document.getElementById("lowerCase");
     checkbox && (checkbox.checked = true);
     isLowerCase = true;
   }
+}
+
+/**
+ * Enables/disables all special characters
+ */
+function setUnsetAllSpecialSymbols() {
+  isAllSpecialSymbols = !isAllSpecialSymbols;
+  specialSymbolsAll.forEach((symbol) => {
+    const checkbox = document.getElementById(`checkbox-${symbol}`);
+    if (checkbox === null) return;
+
+    checkbox.checked = isAllSpecialSymbols;
+    isAllSpecialSymbols
+      ? specialSymbols.push(symbol)
+      : (specialSymbols = specialSymbols.filter((item) => item !== symbol));
+  });
+
+  specialSymbols = [...new Set(specialSymbols)]; // remove duplicates
+}
+
+/**
+ * Enables/disables the special character
+ * @param {string} symbol
+ */
+function changeSpecialSymbols(symbol) {
+  if (specialSymbols.includes(symbol))
+    specialSymbols = specialSymbols.filter((item) => item !== symbol);
+  else specialSymbols.push(symbol);
 }
 
 /**
@@ -75,7 +102,7 @@ function generatePassword() {
     const arr = [
       isLowerCase || isUpperCase ? alphabet : null,
       isNumbers ? numeral : null,
-      isSpecialSymbols ? specialSymbols : null,
+      specialSymbols.length ? specialSymbols : null,
     ].filter((row) => row !== null);
     const position = getRandom(arr.length); // 0, 1, 2
 
